@@ -11,7 +11,7 @@ struct TransactionCardView: View{
     var expense: Expense
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
     @Environment(\.self) var env
-    var body: some View{
+    var body: some View {
         HStack(spacing: 12) {
             if let first = expense.remark?.first{
                 Text(String(first).capitalized)
@@ -22,7 +22,7 @@ struct TransactionCardView: View{
                     .shadow(color: .black.opacity(0.08), radius: 5, x: 5, y: 5)
             }
             
-            Text(expense.remark ?? "No Note?")
+            Text(expense.remark ?? "Note?")
                 .fontWeight(.semibold)
                 .opacity(0.7)
                 .frame(maxWidth: .infinity,alignment: .leading)
@@ -43,7 +43,7 @@ struct TransactionCardView: View{
         .background(Color.white,in: RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contextMenu{
-            Button("Delete?"){
+            Button("Delete?") {
                 env.managedObjectContext.delete(expense)
                 try? env.managedObjectContext.save()
             }

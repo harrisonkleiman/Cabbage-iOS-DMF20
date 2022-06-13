@@ -53,7 +53,7 @@ struct Home: View{
                                 .foregroundColor(Color("Cream"))
                                 .frame(width: 40, height: 40)
                                 .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                                .shadow(color: Color("BG").opacity(0.1), radius: 5, x: 5, y: 5)
                         }
                     }
                     
@@ -160,7 +160,7 @@ struct Home: View{
                     .font(.title2)
                     .fontWeight(.semibold)
                     .opacity(0.7)
-                    .foregroundColor(Color("Green"))
+                    .foregroundColor(Color("Cream"))
                 
                 if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first {
                     
@@ -187,7 +187,7 @@ struct Home: View{
                     .frame(maxWidth: .infinity)
                     .background{
                         Capsule()
-                            .fill(Color("Red"))
+                            .fill(Color("Green"))
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 15)
@@ -199,14 +199,14 @@ struct Home: View{
                 } icon: {
                     Image(systemName: "list.bullet.rectangle.portrait.fill")
                         .font(.title3)
-                        .foregroundColor(Color("Cream"))
+                        .foregroundColor(Color("Red"))
                 }
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Red"))
+                        .fill(Color("Cream"))
                 }
                 .padding(.top, 25)
                 
@@ -235,16 +235,16 @@ struct Home: View{
                 } icon: {
                     Image(systemName: "calendar")
                         .font(.title3)
-                        .foregroundColor(Color("Cream"))
+                        .foregroundColor(Color("Red"))
                 }
-                .padding(.vertical,20)
-                .padding(.horizontal,15)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Red"))
+                        .fill(Color("Cream"))
                 }
-                .padding(.top,5)
+                .padding(.top, 5)
             }
             .frame(maxHeight: .infinity,alignment: .center)
             
@@ -280,8 +280,8 @@ struct Home: View{
                 expenseViewModel.clearData()
             } label: {
                 Image(systemName: "xmark")
-                    .font(.title3)
-                    .foregroundColor(Color("Red").opacity(0.5))
+                    .font(.title2)
+                    .foregroundColor(Color("Red").opacity(0.8))
             }
             .padding()
         }
@@ -294,7 +294,7 @@ struct Home: View{
             ForEach(["Income","Expenses"],id: \.self){type in
                 ZStack{
                     RoundedRectangle(cornerRadius: 2)
-                        .stroke(.black,lineWidth: 2)
+                        .stroke(Color("BG"), lineWidth: 2)
                         .frame(width: 20, height: 20)
                         .opacity(0.5)
                     

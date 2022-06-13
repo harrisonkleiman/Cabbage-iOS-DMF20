@@ -22,13 +22,14 @@ struct StatisticsGraphView: View{
                         env.dismiss()
                     } label: {
                         Image(systemName: "arrow.backward.circle.fill")
-                            .foregroundColor(Color("Gray"))
+                            .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
-                            .background(Color.white,in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
                     }
                     
-                    Text("Statistics")
+                    Text("Your Expense Trends")
+                        .foregroundColor(Color("Green"))
                         .font(.title)
                         .fontWeight(.bold)
                         .lineLimit(1)
@@ -59,7 +60,7 @@ struct StatisticsGraphView: View{
     
     // MARK: Grouped Card View
     @ViewBuilder
-    func GroupedCardView(graph: StatisticsGraph)->some View{
+    func GroupedCardView(graph: StatisticsGraph)-> some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(graph.monthString)
                 .font(.callout)
