@@ -43,7 +43,7 @@ struct TransactionCardView: View{
         .background(Color.white,in: RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contextMenu{
-            Button("Delete"){
+            Button("Delete?"){
                 env.managedObjectContext.delete(expense)
                 try? env.managedObjectContext.save()
             }

@@ -18,7 +18,7 @@ struct ExpenseCard: View{
                     .linearGradient(colors: [
                         Color("Red"),
                         Color("Green"),
-                        Color("Purple"),
+                        Color("BG"),
                     ], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
             

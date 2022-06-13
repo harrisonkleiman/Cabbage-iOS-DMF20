@@ -17,15 +17,21 @@ struct Home: View{
     
     // MARK: - Environment Values
     @Environment(\.self) var env
-    var body: some View{
+    
+    var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
-            VStack(spacing: 12){
-                HStack(spacing: 15){
+            
+            VStack(spacing: 12) {
+                
+                HStack(spacing: 15) {
+                    
                     VStack(alignment: .leading, spacing: 4, content: {
+                        
                         Text("Let's Manage \nYour Cabbage!")
                             .font(.caption)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("Green"))
+                        
                         Text(userName)
                             .font(.title2)
                             .fontWeight(.bold)
@@ -55,6 +61,7 @@ struct Home: View{
                         StatisticsGraphView()
                             .environmentObject(expenseViewModel)
                     } label: {
+                        
                         Image(systemName: "chart.line.uptrend.xyaxis")
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
@@ -66,9 +73,11 @@ struct Home: View{
                         FilterableTransactionView()
                             .environmentObject(expenseViewModel)
                     } label: {
+                        
                         Image(systemName: "info.circle.fill")
                             .foregroundColor(Color("Cream"))
                             .overlay(content: {
+                               
                                 Circle()
                                     .stroke(.white,lineWidth: 2)
                                     .padding(7)
@@ -105,7 +114,7 @@ struct Home: View{
         .animation(.easeInOut, value: expenseViewModel.addNewExpense)
     }
     
-    // MARK: Current Month Transactions View
+    // MARK: - Current Month Transactions View
     @ViewBuilder
     func Transactions(expenses: FetchedResults<Expense>)->some View{
         VStack {
@@ -115,7 +124,7 @@ struct Home: View{
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.bottom)
             
-            ForEach(expenses){expense in
+            ForEach(expenses){ expense in
                 TransactionCardView(expense: expense)
                     .environmentObject(expenseViewModel)
             }
@@ -123,7 +132,7 @@ struct Home: View{
         .padding(.vertical)
     }
     
-    // MARK: Add Expense/Income Button
+    // MARK: - Add Expense/Income Button
     @ViewBuilder
     func AddButton() -> some View{
         Button {
@@ -145,13 +154,16 @@ struct Home: View{
     @ViewBuilder
     func NewExpense() -> some View{
         VStack {
-            VStack(spacing: 15){
+            VStack(spacing: 15) {
+                
                 Text("Add a Transaction?")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .opacity(0.7)
+                    .foregroundColor(Color("Green"))
                 
-                if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first{
+                if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first {
+                    
                     HStack(alignment: .center, spacing: 6) {
                         TextField("0", text: $expenseViewModel.amount)
                         .font(.system(size: 35))
@@ -175,28 +187,28 @@ struct Home: View{
                     .frame(maxWidth: .infinity)
                     .background{
                         Capsule()
-                            .fill(.white)
+                            .fill(Color("Red"))
                     }
-                    .padding(.horizontal,20)
-                    .padding(.top,15)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 15)
                 }
                 
                 Label {
                     TextField("Note", text: $expenseViewModel.remark)
-                        .padding(.leading,10)
+                        .padding(.leading, 10)
                 } icon: {
                     Image(systemName: "list.bullet.rectangle.portrait.fill")
                         .font(.title3)
-                        .foregroundColor(Color("Gray"))
+                        .foregroundColor(Color("Cream"))
                 }
-                .padding(.vertical,20)
-                .padding(.horizontal,15)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(Color("Red"))
                 }
-                .padding(.top,25)
+                .padding(.top, 25)
                 
                 Label {
                     CheckBoxToggle()
@@ -205,12 +217,12 @@ struct Home: View{
                         .font(.title3)
                         .foregroundColor(Color("Red"))
                 }
-                .padding(.vertical,20)
-                .padding(.horizontal,15)
+                .padding(.vertical, 20)
+                .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(.white)
+                        .fill(Color("Cream"))
                 }
                 .padding(.top,5)
                 
@@ -223,7 +235,7 @@ struct Home: View{
                 } icon: {
                     Image(systemName: "calendar")
                         .font(.title3)
-                        .foregroundColor(Color("Red"))
+                        .foregroundColor(Color("Cream"))
                 }
                 .padding(.vertical,20)
                 .padding(.horizontal,15)
@@ -239,21 +251,18 @@ struct Home: View{
             Button {
                 expenseViewModel.addExpense(env: env)
             } label: {
+                
                 Text("Save")
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.vertical,15)
                     .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("Cream"))
+                    
                     .background{
                         RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .fill(
-                                LinearGradient(colors: [
-                                    Color("Green"),
-                                    Color("Cream"),
-                                    Color("BG"),
-                                ], startPoint: .topLeading, endPoint: .bottomTrailing)
-                            )
+                                Color("Green"))
                     }
             }
             .disabled(expenseViewModel.remark == "" || expenseViewModel.amount == "" || expenseViewModel.type == "")
@@ -272,7 +281,7 @@ struct Home: View{
             } label: {
                 Image(systemName: "xmark")
                     .font(.title3)
-                    .foregroundColor(.black.opacity(0.5))
+                    .foregroundColor(Color("Red").opacity(0.5))
             }
             .padding()
         }
@@ -280,8 +289,8 @@ struct Home: View{
     
     // MARK: CheckBox Toggle
     @ViewBuilder
-    func CheckBoxToggle()->some View{
-        HStack(spacing: 10){
+    func CheckBoxToggle() -> some View {
+        HStack(spacing: 10) {
             ForEach(["Income","Expenses"],id: \.self){type in
                 ZStack{
                     RoundedRectangle(cornerRadius: 2)
@@ -289,7 +298,7 @@ struct Home: View{
                         .frame(width: 20, height: 20)
                         .opacity(0.5)
                     
-                    if expenseViewModel.type == type{
+                    if expenseViewModel.type == type {
                         Image(systemName: "checkmark")
                             .font(.caption.bold())
                             .foregroundColor(Color("Green"))

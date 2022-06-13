@@ -107,8 +107,8 @@ struct FilterableTransactionView: View{
     
     // MARK: - Custom Segmented Control
     @ViewBuilder
-    func CustomSegmentedControl()->some View{
-        HStack(spacing: 0){
+    func CustomSegmentedControl() -> some View{
+        HStack(spacing: 0) {
             ForEach(["Income","Expenses"],id: \.self){type in
                 Text(type)
                     .fontWeight(.semibold)
@@ -121,9 +121,9 @@ struct FilterableTransactionView: View{
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(
                                     .linearGradient(colors: [
-                                        Color("Gradient1"),
-                                        Color("Gradient2"),
-                                        Color("Gradient3"),
+                                        Color("Green"),
+                                        Color("Cream"),
+                                        Color("BG"),
                                     ], startPoint: .topLeading, endPoint: .bottomTrailing)
                                 )
                                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -146,13 +146,13 @@ struct FilterableTransactionView: View{
     
     // MARK: Filter Pop Up View
     @ViewBuilder
-    func FilterPopUpView()->some View{
+    func FilterPopUpView() -> some View {
         ZStack{
             Color.black
                 .opacity(expenseViewModel.showFilters ? 0.35 : 0)
                 .ignoresSafeArea()
             
-            if expenseViewModel.showFilters{
+            if expenseViewModel.showFilters {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Start Date")
                         .font(.caption)
