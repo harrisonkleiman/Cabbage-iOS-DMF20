@@ -8,7 +8,7 @@
 import SwiftUI
 
 // MARK: Analytics Graph Model
-struct StatisticsGraph: Identifiable{
+struct StatisticsGraph: Identifiable {
     var id = UUID().uuidString
     var monthString: String
     var monthDate: Date

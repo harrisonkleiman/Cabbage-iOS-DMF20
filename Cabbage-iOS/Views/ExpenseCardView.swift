@@ -40,12 +40,12 @@ struct ExpenseCard: View{
                         .font(.caption.bold())
                         .foregroundColor(Color("Green"))
                         .frame(width: 30, height: 30)
-                        .background(Color("Cream").opacity(0.7),in: Circle())
+                        .background(Color("Cream").opacity(0.8),in: Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Income")
                             .font(.caption)
-                            .opacity(1.0)
+                            .opacity(0.8)
                         Text(expenseViewModel.convertExpensesToPrice(expenses: expenses,type: "Expenses"))
                             .font(.callout)
                             .fontWeight(.semibold)

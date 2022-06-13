@@ -58,7 +58,7 @@ struct Home: View{
                     }
                     
                     NavigationLink {
-                        StatisticsGraphView()
+                        HistoryView()
                             .environmentObject(expenseViewModel)
                     } label: {
                         
@@ -134,7 +134,7 @@ struct Home: View{
     
     // MARK: - Add Expense/Income Button
     @ViewBuilder
-    func AddButton() -> some View{
+    func AddButton() -> some View {
         Button {
             expenseViewModel.addNewExpense.toggle()
         } label: {
@@ -152,14 +152,14 @@ struct Home: View{
     
     // MARK: New Expense View
     @ViewBuilder
-    func NewExpense() -> some View{
+    func NewExpense() -> some View {
         VStack {
             VStack(spacing: 15) {
                 
                 Text("Add a Transaction?")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .opacity(0.7)
+                    .opacity(0.8)
                     .foregroundColor(Color("Cream"))
                 
                 if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first {
@@ -189,19 +189,20 @@ struct Home: View{
                         Capsule()
                             .fill(Color("Green"))
                     }
-                    .padding(.horizontal, 20)
-                    .padding(.top, 15)
+                    .padding(.horizontal, 50)
+                    .padding(.top)
                 }
                 
                 Label {
                     TextField("Note", text: $expenseViewModel.remark)
                         .padding(.leading, 10)
+                        .foregroundColor(Color("BG"))
                 } icon: {
                     Image(systemName: "list.bullet.rectangle.portrait.fill")
                         .font(.title3)
                         .foregroundColor(Color("Red"))
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 25)
                 .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{

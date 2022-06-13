@@ -14,7 +14,7 @@
 		7801F81228578AB40012B498 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F81128578AB40012B498 /* Persistence.swift */; };
 		7801F81528578AB40012B498 /* Cabbage_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7801F81328578AB40012B498 /* Cabbage_iOS.xcdatamodeld */; };
 		7801F81D28578B970012B498 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F81C28578B970012B498 /* Extensions.swift */; };
-		7801F82028578C260012B498 /* StatisticsGrpah.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F81F28578C260012B498 /* StatisticsGrpah.swift */; };
+		7801F82028578C260012B498 /* StatisticsGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F81F28578C260012B498 /* StatisticsGraph.swift */; };
 		7801F82328578CDB0012B498 /* ExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82228578CDB0012B498 /* ExpenseCardView.swift */; };
 		7801F82528578D0B0012B498 /* DynamicFilteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82428578D0B0012B498 /* DynamicFilteredView.swift */; };
 		7801F82728578D250012B498 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82628578D250012B498 /* Home.swift */; };
@@ -23,6 +23,7 @@
 		7801F82D28578D930012B498 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82C28578D930012B498 /* HistoryView.swift */; };
 		7801F83028578DAC0012B498 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82F28578DAC0012B498 /* ExpenseViewModel.swift */; };
 		7801F83228578E080012B498 /* LockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F83128578E080012B498 /* LockViewModel.swift */; };
+		7801F8342857AB090012B498 /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F8332857AB090012B498 /* LineGraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,7 @@
 		7801F81128578AB40012B498 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7801F81428578AB40012B498 /* Cabbage_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cabbage_iOS.xcdatamodel; sourceTree = "<group>"; };
 		7801F81C28578B970012B498 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		7801F81F28578C260012B498 /* StatisticsGrpah.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsGrpah.swift; sourceTree = "<group>"; };
+		7801F81F28578C260012B498 /* StatisticsGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsGraph.swift; sourceTree = "<group>"; };
 		7801F82228578CDB0012B498 /* ExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCardView.swift; sourceTree = "<group>"; };
 		7801F82428578D0B0012B498 /* DynamicFilteredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFilteredView.swift; sourceTree = "<group>"; };
 		7801F82628578D250012B498 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		7801F82C28578D930012B498 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		7801F82F28578DAC0012B498 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		7801F83128578E080012B498 /* LockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewModel.swift; sourceTree = "<group>"; };
+		7801F8332857AB090012B498 /* LineGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,7 @@
 		7801F81E28578C190012B498 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7801F81F28578C260012B498 /* StatisticsGrpah.swift */,
+				7801F81F28578C260012B498 /* StatisticsGraph.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,6 +124,7 @@
 				7801F82828578D500012B498 /* TransactionCardView.swift */,
 				7801F82A28578D720012B498 /* FilterableTransactionView.swift */,
 				7801F82C28578D930012B498 /* HistoryView.swift */,
+				7801F8332857AB090012B498 /* LineGraph.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7801F81D28578B970012B498 /* Extensions.swift in Sources */,
+				7801F8342857AB090012B498 /* LineGraph.swift in Sources */,
 				7801F82D28578D930012B498 /* HistoryView.swift in Sources */,
 				7801F82328578CDB0012B498 /* ExpenseCardView.swift in Sources */,
 				7801F82B28578D720012B498 /* FilterableTransactionView.swift in Sources */,
@@ -215,7 +219,7 @@
 				7801F82728578D250012B498 /* Home.swift in Sources */,
 				7801F80B28578AB20012B498 /* ContentView.swift in Sources */,
 				7801F83228578E080012B498 /* LockViewModel.swift in Sources */,
-				7801F82028578C260012B498 /* StatisticsGrpah.swift in Sources */,
+				7801F82028578C260012B498 /* StatisticsGraph.swift in Sources */,
 				7801F80928578AB20012B498 /* Cabbage_iOSApp.swift in Sources */,
 				7801F83028578DAC0012B498 /* ExpenseViewModel.swift in Sources */,
 				7801F81528578AB40012B498 /* Cabbage_iOS.xcdatamodeld in Sources */,

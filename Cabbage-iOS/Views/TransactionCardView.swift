@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransactionCardView: View{
+struct TransactionCardView: View {
     var expense: Expense
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
     @Environment(\.self) var env

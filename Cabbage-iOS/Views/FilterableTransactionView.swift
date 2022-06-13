@@ -17,20 +17,21 @@ struct FilterableTransactionView: View{
     
     var body: some View{
         ScrollView(.vertical, showsIndicators: false, content: {
-            VStack{
-                HStack(spacing: 15){
+            VStack {
+                HStack(spacing: 15) {
                     Button {
                         env.dismiss()
                     } label: {
                         Image(systemName: "arrow.backward.circle.fill")
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
-                            .background(Color.white,in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
                     }
                     
                     Text("Transactions")
                         .font(.title)
+                        .foregroundColor(Color("Green"))
                         .fontWeight(.bold)
                         .lineLimit(1)
                         .opacity(0.7)
@@ -39,10 +40,10 @@ struct FilterableTransactionView: View{
                     Button {
                         expenseViewModel.showFilters.toggle()
                     } label: {
-                        Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(Color("Red"))
+                        Image(systemName: "calendar")
+                            .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
-                            .background(Color.white,in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                             .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
                     }
                 }
@@ -57,19 +58,19 @@ struct FilterableTransactionView: View{
                     }
                 }
 
-                DynamicFilteredView(startDate: expenseViewModel.startDate, endDate: expenseViewModel.endDate, type: expenseViewModel.currentType){(expenses: FetchedResults<Expense>) in
-                    VStack{
+                DynamicFilteredView(startDate: expenseViewModel.startDate, endDate: expenseViewModel.endDate, type: expenseViewModel.currentType){ (expenses: FetchedResults<Expense>) in
+                    VStack {
                         
-                        VStack(spacing: 15){
+                        VStack(spacing: 15) {
                             Text(expenseViewModel.convertDateToString())
                                 .opacity(0.7)
                             
-                            if expenses.isEmpty{
+                            if expenses.isEmpty {
                                 Text("No History Found")
                                     .fontWeight(.semibold)
                                     .opacity(0.7)
                                     .padding(.top,5)
-                            }else{
+                            } else {
                                 Text(expenseViewModel.convertExpensesToPrice(expenses: expenses))
                                     .font(.largeTitle.bold())
                                     .opacity(0.9)
@@ -85,7 +86,7 @@ struct FilterableTransactionView: View{
                         }
                         .padding(.vertical,20)
                         
-                        ForEach(expenses){expense in
+                        ForEach(expenses) { expense in
                             TransactionCardView(expense: expense)
                                 .environmentObject(expenseViewModel)
                         }
@@ -107,7 +108,7 @@ struct FilterableTransactionView: View{
     
     // MARK: - Custom Segmented Control
     @ViewBuilder
-    func CustomSegmentedControl() -> some View{
+    func CustomSegmentedControl() -> some View {
         HStack(spacing: 0) {
             ForEach(["Income","Expenses"],id: \.self){type in
                 Text(type)
@@ -119,13 +120,7 @@ struct FilterableTransactionView: View{
                     .background{
                         if expenseViewModel.currentType == type{
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(
-                                    .linearGradient(colors: [
-                                        Color("Green"),
-                                        Color("Cream"),
-                                        Color("BG"),
-                                    ], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                )
+                                .fill(Color("Green"))
                                 .matchedGeometryEffect(id: "TAB", in: animation)
                         }
                     }
