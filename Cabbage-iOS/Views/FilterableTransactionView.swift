@@ -26,7 +26,7 @@ struct FilterableTransactionView: View{
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
                             .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
                     }
                     
                     Text("Transactions")
@@ -34,7 +34,7 @@ struct FilterableTransactionView: View{
                         .foregroundColor(Color("Green"))
                         .fontWeight(.bold)
                         .lineLimit(1)
-                        .opacity(0.7)
+                        .opacity(0.8)
                         .frame(maxWidth: .infinity,alignment: .leading)
                     
                     Button {
@@ -44,7 +44,7 @@ struct FilterableTransactionView: View{
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
                             .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
                     }
                 }
                 
@@ -118,7 +118,7 @@ struct FilterableTransactionView: View{
                     .padding(.vertical,12)
                     .frame(maxWidth: .infinity)
                     .background{
-                        if expenseViewModel.currentType == type{
+                        if expenseViewModel.currentType == type {
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(Color("Green"))
                                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -149,27 +149,32 @@ struct FilterableTransactionView: View{
             
             if expenseViewModel.showFilters {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Start Date")
+                    Text("From...")
                         .font(.caption)
-                        .opacity(0.7)
+                        .opacity(1.0)
+                        .foregroundColor(Color("Cream"))
                     
                     DatePicker("", selection: $expenseViewModel.startDate,in: Date.distantPast...Date(),displayedComponents: [.date])
                         .labelsHidden()
                         .datePickerStyle(.compact)
+                        .background(Color("Red"))
+                        
                     
-                    Text("End Date")
+                    Text("To...")
                         .font(.caption)
-                        .opacity(0.7)
-                        .padding(.top,10)
+                        .opacity(1.0)
+                        .padding(.top, 10)
+                        .foregroundColor(Color("Cream"))
                     
                     DatePicker("", selection: $expenseViewModel.endDate,in: Date.distantPast...Date(),displayedComponents: [.date])
                         .labelsHidden()
                         .datePickerStyle(.compact)
+                        .background(Color("Red"))
                 }
                 .padding(20)
                 .background{
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        .fill(.white)
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .fill(Color("BG"))
                 }
                 .overlay(alignment: .topTrailing, content: {
                     Button {
@@ -177,7 +182,7 @@ struct FilterableTransactionView: View{
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.title3)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                     }
                     .padding(5)
 

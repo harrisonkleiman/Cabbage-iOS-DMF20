@@ -13,16 +13,16 @@ struct TransactionCardView: View {
     @Environment(\.self) var env
     var body: some View {
         HStack(spacing: 12) {
-            if let first = expense.remark?.first{
+            if let first = expense.note?.first{
                 Text(String(first).capitalized)
                     .font(.title.bold())
                     .foregroundColor(.white)
                     .frame(width: 50, height: 50)
-                    .background(Color(("BG") ), in: Circle())
-                    .shadow(color: .black.opacity(0.08), radius: 5, x: 5, y: 5)
+                    .background(Color(("accent") ), in: Circle())
+                    .shadow(color: .white.opacity(0.1), radius: 5, x: 5, y: 5)
             }
             
-            Text(expense.remark ?? "Note?")
+            Text(expense.note ?? "Note?")
                 .fontWeight(.semibold)
                 .opacity(0.7)
                 .frame(maxWidth: .infinity,alignment: .leading)

@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct ExpenseCard: View{
+struct ExpenseCard: View {
+    
     var expenses: FetchedResults<Expense>
+    
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
     var isDetail: Bool = false
     var body: some View{
@@ -16,9 +18,9 @@ struct ExpenseCard: View{
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(
                     .linearGradient(colors: [
-                        Color("Red"),
+                        Color("accent"),
                         Color("Green"),
-                        Color("BG"),
+                        Color("accent"),
                     ], startPoint: .topLeading, endPoint: .bottomTrailing)
                 )
             
@@ -31,7 +33,7 @@ struct ExpenseCard: View{
                     Text(expenseViewModel.convertExpensesToPrice(expenses: expenses))
                         .font(.system(size: 35, weight: .bold))
                         .lineLimit(1)
-                        .padding(.bottom,5)
+                        .padding(.bottom, 5)
                 }
                 .offset(y: -10)
                 
@@ -40,12 +42,12 @@ struct ExpenseCard: View{
                         .font(.caption.bold())
                         .foregroundColor(Color("Green"))
                         .frame(width: 30, height: 30)
-                        .background(Color("Cream").opacity(0.8),in: Circle())
+                        .background(Color("Cream").opacity(1.0),in: Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Income")
                             .font(.caption)
-                            .opacity(0.8)
+                            .opacity(1.0)
                         Text(expenseViewModel.convertExpensesToPrice(expenses: expenses,type: "Expenses"))
                             .font(.callout)
                             .fontWeight(.semibold)

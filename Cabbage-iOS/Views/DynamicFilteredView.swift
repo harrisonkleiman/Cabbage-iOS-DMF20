@@ -14,10 +14,10 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
     let content: (FetchedResults<T>)->Content
     
     // MARK: Building Custom ForEach which will give Coredata object to build View
-    init(startDate: Date,endDate: Date,type: String,@ViewBuilder content: @escaping (FetchedResults<T>)->Content){
+    init(startDate: Date,endDate: Date,type: String,@ViewBuilder content: @escaping (FetchedResults<T>)->Content) {
         let filterKey = "date"
         var predicate: NSPredicate!
-        if type == "ALL"{
+        if type == "ALL" {
             predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@", argumentArray: [startDate,endDate])
         } else {
             predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@ AND type == %@", argumentArray: [startDate,endDate,type])

@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct Home: View{
+struct Home: View {
     @StateObject var expenseViewModel: ExpenseViewModel = .init()
     @AppStorage("user_name") var userName: String = ""
     
-    // MARK: - Face/Touch ID Properties
+    // MARK: - Face & Touch ID Properties
     @EnvironmentObject var lockModel: LockViewModel
     @AppStorage("lock_content") var lockContent: Bool = false
     
@@ -28,7 +28,7 @@ struct Home: View{
                     VStack(alignment: .leading, spacing: 4, content: {
                         
                         Text("Let's Manage \nYour Cabbage!")
-                            .font(.caption)
+                            .font(.title2)
                             .fontWeight(.semibold)
                             .foregroundColor(Color("Green"))
                         
@@ -42,7 +42,7 @@ struct Home: View{
                     })
                     .frame(maxWidth: .infinity,alignment: .leading)
                     
-                    if lockModel.isAvailable{
+                    if lockModel.isAvailable {
                         Button {
                             lockContent.toggle()
                             if lockContent{
@@ -58,7 +58,7 @@ struct Home: View{
                     }
                     
                     NavigationLink {
-                        HistoryView()
+                        GraphView()
                             .environmentObject(expenseViewModel)
                     } label: {
                         
@@ -66,7 +66,7 @@ struct Home: View{
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
                             .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
                     }
                     
                     NavigationLink {
@@ -74,17 +74,17 @@ struct Home: View{
                             .environmentObject(expenseViewModel)
                     } label: {
                         
-                        Image(systemName: "info.circle.fill")
+                        Image(systemName: "list.bullet.rectangle.portrait")
                             .foregroundColor(Color("Cream"))
                             .overlay(content: {
                                
                                 Circle()
-                                    .stroke(.white,lineWidth: 2)
-                                    .padding(7)
+                                    .stroke(Color(""),lineWidth: 2)
+                                    .padding(10)
                             })
                             .frame(width: 40, height: 40)
                             .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                            .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
                     }
                 }
                 
@@ -106,7 +106,7 @@ struct Home: View{
                 .padding()
         }
         .overlay {
-            if expenseViewModel.addNewExpense{
+            if expenseViewModel.addNewExpense {
                 NewExpense()
                     .transition(.move(edge: .bottom))
             }
@@ -118,13 +118,13 @@ struct Home: View{
     @ViewBuilder
     func Transactions(expenses: FetchedResults<Expense>)->some View{
         VStack {
-            Text("Your Transactions")
+            Text("Your Recent Transactions")
                 .font(.title2.bold())
-                .foregroundColor(Color("Green").opacity(0.7))
+                .foregroundColor(Color("Green").opacity(0.8))
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.bottom)
             
-            ForEach(expenses){ expense in
+            ForEach(expenses) { expense in
                 TransactionCardView(expense: expense)
                     .environmentObject(expenseViewModel)
             }
@@ -146,7 +146,7 @@ struct Home: View{
                     Circle()
                         .fill(Color("Green"))
                 }
-                .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
         }
     }
     
@@ -159,8 +159,8 @@ struct Home: View{
                 Text("Add a Transaction?")
                     .font(.title2)
                     .fontWeight(.semibold)
-                    .opacity(0.8)
-                    .foregroundColor(Color("Cream"))
+                    .opacity(1.0)
+                    .foregroundColor(Color("accent"))
                 
                 if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first {
                     
@@ -183,7 +183,7 @@ struct Home: View{
                         }
                             
                     }
-                    .padding(.vertical,10)
+                    .padding(.vertical, 10)
                     .frame(maxWidth: .infinity)
                     .background{
                         Capsule()
@@ -194,9 +194,10 @@ struct Home: View{
                 }
                 
                 Label {
-                    TextField("Note", text: $expenseViewModel.remark)
+                    TextField("What's it for?", text: $expenseViewModel.note)
                         .padding(.leading, 10)
-                        .foregroundColor(Color("BG"))
+                        .foregroundColor(Color("Cream"))
+                        .background(Color("accent"))
                 } icon: {
                     Image(systemName: "list.bullet.rectangle.portrait.fill")
                         .font(.title3)
@@ -207,7 +208,7 @@ struct Home: View{
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Cream"))
+                        .fill(Color("accent"))
                 }
                 .padding(.top, 25)
                 
@@ -217,15 +218,16 @@ struct Home: View{
                     Image(systemName: "arrow.up.arrow.down")
                         .font(.title3)
                         .foregroundColor(Color("Red"))
+                        .background(Color(""))
                 }
                 .padding(.vertical, 20)
                 .padding(.horizontal, 15)
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Cream"))
+                        .fill(Color("accent"))
                 }
-                .padding(.top,5)
+                .padding(.top, 5)
                 
                 Label {
                     DatePicker("", selection: $expenseViewModel.expenseDate,displayedComponents: [.date])
@@ -243,7 +245,7 @@ struct Home: View{
                 .frame(maxWidth: .infinity)
                 .background{
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                        .fill(Color("Cream"))
+                        .fill(Color("accent"))
                 }
                 .padding(.top, 5)
             }
@@ -256,18 +258,18 @@ struct Home: View{
                 Text("Save")
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .padding(.vertical,15)
+                    .padding(.vertical, 20)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color("Cream"))
                     
                     .background{
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        RoundedRectangle(cornerRadius: 25, style: .continuous)
                             .fill(
                                 Color("Green"))
                     }
             }
-            .disabled(expenseViewModel.remark == "" || expenseViewModel.amount == "" || expenseViewModel.type == "")
-            .opacity(expenseViewModel.remark == "" || expenseViewModel.amount == "" || expenseViewModel.type == "" ? 0.6 : 1)
+            .disabled(expenseViewModel.note == "" || expenseViewModel.amount == "" || expenseViewModel.type == "")
+            .opacity(expenseViewModel.note == "" || expenseViewModel.amount == "" || expenseViewModel.type == "" ? 0.6 : 1)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -295,7 +297,7 @@ struct Home: View{
             ForEach(["Income","Expenses"],id: \.self){type in
                 ZStack{
                     RoundedRectangle(cornerRadius: 2)
-                        .stroke(Color("BG"), lineWidth: 2)
+                        .stroke(Color("Cream"), lineWidth: 2)
                         .frame(width: 20, height: 20)
                         .opacity(0.5)
                     

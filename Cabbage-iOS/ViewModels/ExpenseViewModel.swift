@@ -10,7 +10,7 @@ import SwiftUI
 class ExpenseViewModel: ObservableObject{
     // MARK: - Type
     @Published var currentType: String = "Expenses"
-    // MARK: Filter Properties
+    // MARK: - Filter Properties
     @Published var showFilters: Bool = false
     @Published var currentMonthStartDate: Date = Date()
     @Published var startDate: Date = Date()
@@ -18,7 +18,7 @@ class ExpenseViewModel: ObservableObject{
     
     // MARK: Add Expense Properties
     @Published var addNewExpense: Bool = false
-    @Published var remark: String = ""
+    @Published var note: String = ""
     @Published var expenseDate: Date = Date()
     @Published var type: String = ""
     @Published var amount: String = ""
@@ -39,8 +39,8 @@ class ExpenseViewModel: ObservableObject{
     
     // MARK: - Asking User Name
     func askUsername(){
-        alertTF(title: "Message", message: "Enter Your Name", hintText: "iJustine", primaryTitle: "Save", secondaryTitle: "Cancel") { value in
-            if value != ""{self.userName = value}
+        alertTF(title: "Message", message: "Enter Your Name", hintText: "Your name", primaryTitle: "Save", secondaryTitle: "Cancel") { value in
+            if value != "" { self.userName = value }
         } secondaryAction: {
         }
     }
@@ -68,7 +68,7 @@ class ExpenseViewModel: ObservableObject{
             value = expenses.reduce(0.0) { partialResult, expense in
                 return partialResult + (expense.type == "Income" ? expense.amount : -expense.amount)
             }
-        }else{
+        } else {
             value = expenses.reduce(0.0) { partialResult, expense in
                 return partialResult + (expense.type == type ? expense.amount : 0)
             }
@@ -77,15 +77,15 @@ class ExpenseViewModel: ObservableObject{
         return convertNumberToPrice(value: value)
     }
     
-    // MARK: Adding New Expense
-    func addExpense(env: EnvironmentValues){
+    // MARK: - Adding New Expense
+    func addExpense(env: EnvironmentValues) {
         let expense = Expense(context: env.managedObjectContext)
         expense.amount = (amount as NSString).doubleValue
-        expense.remark = remark
+        expense.note = note
         expense.type = type
         expense.date = expenseDate
         
-        if let _ = try? env.managedObjectContext.save(){
+        if let _ = try? env.managedObjectContext.save() {
             addNewExpense = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self.clearData()
@@ -93,10 +93,10 @@ class ExpenseViewModel: ObservableObject{
         }
     }
     
-    // MARK: Clearing Data
-    func clearData(){
+    // MARK: - Clearing Data
+    func clearData() {
         amount = ""
-        remark = ""
+        note = ""
         type = ""
         expenseDate = Date()
     }

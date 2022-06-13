@@ -66,8 +66,9 @@ struct LineGraph: View {
                 
                     // Gradient
                     LinearGradient(colors: [
-                        Color("Cream"),
-                        Color("Red")
+                        Color("Red"),
+                        Color("accent"),
+                        Color("Cream")
                     ], startPoint: .leading, endPoint: .trailing)
                 )
                 
@@ -140,7 +141,7 @@ struct LineGraph: View {
                 
                 let translation = value.location.x - 20
                 
-                // Getting index...
+                // MARK: - Index
                 let index = max(min(Int((translation / width).rounded() + 1), data.count - 1), 0)
                 
                 currentPlot = "$ \(data[index])"
@@ -149,7 +150,7 @@ struct LineGraph: View {
                 // removing half width...
                 offset = CGSize(width: points[index].x - 40, height: points[index].y - height)
                 
-            }).onEnded({ value in
+            }).onEnded( { value in
                 
                 withAnimation{showPlot = false}
                 
@@ -159,25 +160,27 @@ struct LineGraph: View {
         }
         .background(
         
-            VStack(alignment: .leading){
+            VStack(alignment: .leading) {
                 
                 let max = data.max() ?? 0
                 
                 Text("$ \(Int(max))")
                     .font(.caption.bold())
                     .offset(y: -5)
+                    .foregroundColor(Color("Cream"))
                 
                 Spacer()
                 
                 Text("$ 0")
                     .font(.caption.bold())
                     .offset(y: 5)
+                    .foregroundColor(Color("Cream"))
             }
             .frame(maxWidth: .infinity,alignment: .leading)
         )
         .padding(.horizontal, 10)
         .onChange(of: isDrag) { newValue in
-            if !isDrag{showPlot = false}
+            if !isDrag{ showPlot = false }
         }
     }
     

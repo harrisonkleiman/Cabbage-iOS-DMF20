@@ -1,5 +1,5 @@
 //
-//  HistoryView.swift
+//  GraphView.swift
 //  Cabbage-iOS
 //
 //  Created by Harrison Kleiman on 6/13/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HistoryView: View {
+struct GraphView: View {
     
     var body: some View {
         
@@ -41,9 +41,9 @@ struct HistoryView: View {
             .padding(.vertical, 10)
             .padding(.horizontal)
             .background(Color("BG"), in: Capsule())
-            .foregroundColor(.black)
-            .shadow(color: .black.opacity(0.05), radius: 5, x: 5, y: 5)
-            .shadow(color: .black.opacity(0.03), radius: 5, x: -5, y: -5)
+            .foregroundColor(Color("Cream"))
+            .shadow(color: Color("Cream").opacity(0.05), radius: 5, x: 5, y: 5)
+            .shadow(color: Color("Cream").opacity(0.03), radius: 5, x: -5, y: -5)
         }
         
         // MARK: - Line Graph View
@@ -56,13 +56,13 @@ struct HistoryView: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
+struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        GraphView()
     }
 }
 
-// Sample Plot For Graph.....
+// MARK - Sample Plot For Graph.....
 let samplePlot: [CGFloat] = [
 
     989,1200,750,790,650,950,1200,600,500,600,890,1203,1400,900,1250,
