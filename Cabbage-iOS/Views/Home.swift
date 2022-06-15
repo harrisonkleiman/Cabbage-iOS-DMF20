@@ -58,10 +58,10 @@ struct Home: View {
                     }
                     
                     NavigationLink {
-                        GraphView()
+                        BarChart(title: "Your Trends", legend: "Month", barColor: Color("Green"), data: chartDataSet)
                             .environmentObject(expenseViewModel)
                     } label: {
-                        
+
                         Image(systemName: "chart.line.uptrend.xyaxis")
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
@@ -116,11 +116,11 @@ struct Home: View {
     
     // MARK: - Current Month Transactions View
     @ViewBuilder
-    func Transactions(expenses: FetchedResults<Expense>)->some View{
+    func Transactions(expenses: FetchedResults<Expense>) -> some View {
         VStack {
-            Text("Your Recent Transactions")
+            Text("Your Recents")
                 .font(.title2.bold())
-                .foregroundColor(Color("Green").opacity(0.8))
+                .foregroundColor(Color("Cream").opacity(0.8))
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.bottom)
             
@@ -160,14 +160,14 @@ struct Home: View {
                     .font(.title2)
                     .fontWeight(.semibold)
                     .opacity(1.0)
-                    .foregroundColor(Color("accent"))
+                    .foregroundColor(Color("Cream"))
                 
                 if let symbol = expenseViewModel.convertNumberToPrice(value: 0).first {
                     
                     HStack(alignment: .center, spacing: 6) {
                         TextField("0", text: $expenseViewModel.amount)
                         .font(.system(size: 35))
-                        .foregroundColor(Color("Cream"))
+                        .foregroundColor(Color("accent"))
                         .multilineTextAlignment(.center)
                         .textSelection(.disabled)
                         .keyboardType(.numberPad)
@@ -183,13 +183,13 @@ struct Home: View {
                         }
                             
                     }
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 40)
                     .frame(maxWidth: .infinity)
                     .background{
                         Capsule()
                             .fill(Color("Green"))
                     }
-                    .padding(.horizontal, 50)
+                    .padding(.horizontal, 60)
                     .padding(.top)
                 }
                 
@@ -197,7 +197,6 @@ struct Home: View {
                     TextField("What's it for?", text: $expenseViewModel.note)
                         .padding(.leading, 10)
                         .foregroundColor(Color("Cream"))
-                        .background(Color("accent"))
                 } icon: {
                     Image(systemName: "list.bullet.rectangle.portrait.fill")
                         .font(.title3)

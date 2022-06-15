@@ -27,7 +27,7 @@ class ExpenseViewModel: ObservableObject{
     @AppStorage("user_name") var userName: String = "User Name"
     
     init(){
-        // MARK: Setting Month Starting Date
+        // MARK: - Setting Month Starting Date
         let calendar = Calendar.current
         let todayDate = Date()
         let components = calendar.dateComponents([.year,.month], from: todayDate)

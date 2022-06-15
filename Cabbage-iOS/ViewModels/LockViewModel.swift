@@ -8,21 +8,21 @@
 import SwiftUI
 import LocalAuthentication
 
-// MARK: - Face Lock Properties
+// MARK: - Face Lock Properties ??
 class LockViewModel: ObservableObject{
     @Published var isUnlocked: Bool = false
     @Published var isAvailable: Bool = true
     
-    // MARK: Authenticating With User
-    func authenticateUser(){
+    // MARK: - Authenticate User
+    func authenticateUser() {
         let context = LAContext()
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Security To Hide Privacy Contents From Others") { status, _ in
                 DispatchQueue.main.async {
                     self.isUnlocked = status
                 }
             }
-        }else{
+        } else {
             isAvailable = false
             isUnlocked = false
         }

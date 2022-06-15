@@ -9,12 +9,12 @@ import SwiftUI
 import CoreData
 
 struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
-    // MARK: - Core Data Request
+    // MARK: - CORE DATA REQUEST
     @FetchRequest var request: FetchedResults<T>
-    let content: (FetchedResults<T>)->Content
+    let content: (FetchedResults<T>) -> Content
     
     // MARK: Building Custom ForEach which will give Coredata object to build View
-    init(startDate: Date,endDate: Date,type: String,@ViewBuilder content: @escaping (FetchedResults<T>)->Content) {
+    init(startDate: Date,endDate: Date,type: String,@ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
         let filterKey = "date"
         var predicate: NSPredicate!
         if type == "ALL" {
@@ -22,7 +22,7 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
         } else {
             predicate = NSPredicate(format: "\(filterKey) >= %@ AND \(filterKey) < %@ AND type == %@", argumentArray: [startDate,endDate,type])
         }
-        // MARK: - Adding Sort
+        // MARK: - SORT
         _request = FetchRequest(entity: T.entity(), sortDescriptors: [.init(keyPath: \Expense.date, ascending: false)], predicate: type == "NONE" ? nil : predicate,animation: .easeInOut)
         self.content = content
     }

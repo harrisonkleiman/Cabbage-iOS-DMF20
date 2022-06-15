@@ -15,7 +15,7 @@ struct FilterableTransactionView: View{
     // MARK: - Matched Geometry Effect
     @Namespace var animation
     
-    var body: some View{
+    var body: some View {
         ScrollView(.vertical, showsIndicators: false, content: {
             VStack {
                 HStack(spacing: 15) {

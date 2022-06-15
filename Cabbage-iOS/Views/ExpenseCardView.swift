@@ -18,7 +18,7 @@ struct ExpenseCard: View {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(
                     .linearGradient(colors: [
-                        Color("accent"),
+                        Color("Cream"),
                         Color("Green"),
                         Color("accent"),
                     ], startPoint: .topLeading, endPoint: .bottomTrailing)
