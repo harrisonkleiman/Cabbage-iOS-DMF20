@@ -29,7 +29,7 @@ struct Home: View {
                         
                         Text("Let's Manage \nYour Cabbage!")
                             .font(.title2)
-                            .fontWeight(.semibold)
+                            .fontWeight(.light)
                             .foregroundColor(Color("Green"))
                         
                         Text(userName)
@@ -119,7 +119,8 @@ struct Home: View {
     func Transactions(expenses: FetchedResults<Expense>) -> some View {
         VStack {
             Text("Your Recents")
-                .font(.title2.bold())
+                .font(.title2)
+                .fontWeight(.semibold)
                 .foregroundColor(Color("Cream").opacity(0.8))
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .padding(.bottom)

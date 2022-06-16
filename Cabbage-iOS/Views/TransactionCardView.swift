@@ -13,7 +13,7 @@ struct TransactionCardView: View {
     @Environment(\.self) var env
     var body: some View {
         HStack(spacing: 12) {
-            if let first = expense.note?.first{
+            if let first = expense.note?.first {
                 Text(String(first).capitalized)
                     .font(.title.bold())
                     .foregroundColor(.white)

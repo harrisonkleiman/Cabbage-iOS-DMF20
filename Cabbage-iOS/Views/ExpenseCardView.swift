@@ -13,7 +13,7 @@ struct ExpenseCard: View {
     
     @EnvironmentObject var expenseViewModel: ExpenseViewModel
     var isDetail: Bool = false
-    var body: some View{
+    var body: some View {
         GeometryReader{ proxy in
             RoundedRectangle(cornerRadius: 25, style: .continuous)
                 .fill(

@@ -29,10 +29,10 @@ struct FilterableTransactionView: View{
                             .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
                     }
                     
-                    Text("Transactions")
+                    Text("Your Balance")
                         .font(.title)
                         .foregroundColor(Color("Green"))
-                        .fontWeight(.bold)
+                        .fontWeight(.light)
                         .lineLimit(1)
                         .opacity(0.8)
                         .frame(maxWidth: .infinity,alignment: .leading)
@@ -68,7 +68,7 @@ struct FilterableTransactionView: View{
                             if expenses.isEmpty {
                                 Text("Hmm, no history found...")
                                     .fontWeight(.semibold)
-                                    .opacity(0.7)
+                                    .opacity(0.4)
                                     .padding(.top,5)
                             } else {
                                 Text(expenseViewModel.convertExpensesToPrice(expenses: expenses))
@@ -136,8 +136,8 @@ struct FilterableTransactionView: View{
         .padding(5)
         .background{
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(Color("Red"))
-                .opacity(0.5)
+                .fill(Color("accent"))
+                .opacity(0.6)
         }
     }
     
