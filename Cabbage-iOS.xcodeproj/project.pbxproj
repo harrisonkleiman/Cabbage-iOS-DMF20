@@ -21,9 +21,9 @@
 		7801F82B28578D720012B498 /* FilterableTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82A28578D720012B498 /* FilterableTransactionView.swift */; };
 		7801F83028578DAC0012B498 /* ExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F82F28578DAC0012B498 /* ExpenseViewModel.swift */; };
 		7801F83228578E080012B498 /* LockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F83128578E080012B498 /* LockViewModel.swift */; };
-		7801F8362857D9CF0012B498 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F8352857D9CF0012B498 /* BarChartCell.swift */; };
-		7801F8382857DA5C0012B498 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F8372857DA5C0012B498 /* BarChart.swift */; };
-		7801F83A2857DAD40012B498 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801F8392857DAD40012B498 /* ChartData.swift */; };
+		78C5CC58285B8A38007C0832 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5CC57285B8A38007C0832 /* BarChart.swift */; };
+		78C5CC5A285B8A58007C0832 /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5CC59285B8A58007C0832 /* BarChartCell.swift */; };
+		78C5CC5C285B8A77007C0832 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C5CC5B285B8A77007C0832 /* ChartData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 		7801F82A28578D720012B498 /* FilterableTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterableTransactionView.swift; sourceTree = "<group>"; };
 		7801F82F28578DAC0012B498 /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		7801F83128578E080012B498 /* LockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockViewModel.swift; sourceTree = "<group>"; };
-		7801F8352857D9CF0012B498 /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
-		7801F8372857DA5C0012B498 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
-		7801F8392857DAD40012B498 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		78C5CC57285B8A38007C0832 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		78C5CC59285B8A58007C0832 /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		78C5CC5B285B8A77007C0832 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +110,9 @@
 		7801F81E28578C190012B498 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7801F8392857DAD40012B498 /* ChartData.swift */,
-				7801F8352857D9CF0012B498 /* BarChartCell.swift */,
-				7801F8372857DA5C0012B498 /* BarChart.swift */,
+				78C5CC57285B8A38007C0832 /* BarChart.swift */,
+				78C5CC59285B8A58007C0832 /* BarChartCell.swift */,
+				78C5CC5B285B8A77007C0832 /* ChartData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,16 +212,16 @@
 				7801F82328578CDB0012B498 /* ExpenseCardView.swift in Sources */,
 				7801F82B28578D720012B498 /* FilterableTransactionView.swift in Sources */,
 				7801F81228578AB40012B498 /* Persistence.swift in Sources */,
-				7801F8362857D9CF0012B498 /* BarChartCell.swift in Sources */,
+				78C5CC5C285B8A77007C0832 /* ChartData.swift in Sources */,
+				78C5CC5A285B8A58007C0832 /* BarChartCell.swift in Sources */,
 				7801F82928578D500012B498 /* TransactionCardView.swift in Sources */,
-				7801F83A2857DAD40012B498 /* ChartData.swift in Sources */,
 				7801F82528578D0B0012B498 /* DynamicFilteredView.swift in Sources */,
 				7801F82728578D250012B498 /* Home.swift in Sources */,
+				78C5CC58285B8A38007C0832 /* BarChart.swift in Sources */,
 				7801F80B28578AB20012B498 /* ContentView.swift in Sources */,
 				7801F83228578E080012B498 /* LockViewModel.swift in Sources */,
 				7801F80928578AB20012B498 /* Cabbage_iOSApp.swift in Sources */,
 				7801F83028578DAC0012B498 /* ExpenseViewModel.swift in Sources */,
-				7801F8382857DA5C0012B498 /* BarChart.swift in Sources */,
 				7801F81528578AB40012B498 /* Cabbage_iOS.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

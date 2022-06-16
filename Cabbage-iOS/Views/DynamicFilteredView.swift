@@ -13,7 +13,7 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
     @FetchRequest var request: FetchedResults<T>
     let content: (FetchedResults<T>) -> Content
     
-    // MARK: Building Custom ForEach which will give Coredata object to build View
+    // MARK: - CORE DATA INFO TO BUILD VIEW
     init(startDate: Date,endDate: Date,type: String,@ViewBuilder content: @escaping (FetchedResults<T>) -> Content) {
         let filterKey = "date"
         var predicate: NSPredicate!
@@ -31,5 +31,3 @@ struct DynamicFilteredView<Content: View,T>: View where T: NSManagedObject {
         content(request)
     }
 }
-
-

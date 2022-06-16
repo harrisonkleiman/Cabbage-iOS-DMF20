@@ -1,17 +1,17 @@
 //
-//  ChartData.swift
+//  BarChartData.swift
 //  Cabbage-iOS
 //
-//  Created by Harrison Kleiman on 6/13/22.
+//  Created by Harrison Kleiman on 6/16/22.
 //
 
 import SwiftUI
-
+ 
 struct ChartData {
      var label: String
      var value: Double
  }
-
+ 
 let chartDataSet = [
      ChartData(label: "January 2022", value: 340.32),
      ChartData(label: "February 2022", value: 250.0),
@@ -19,4 +19,4 @@ let chartDataSet = [
      ChartData(label: "April 2022", value: 350.0),
      ChartData(label: "May 2022", value: 450.0),
      ChartData(label: "June 2022", value: 380.0)
- ]
+]

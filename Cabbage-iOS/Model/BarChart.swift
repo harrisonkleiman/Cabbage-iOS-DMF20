@@ -2,11 +2,11 @@
 //  BarChart.swift
 //  Cabbage-iOS
 //
-//  Created by Harrison Kleiman on 6/13/22.
+//  Created by Harrison Kleiman on 6/16/22.
 //
 
 import SwiftUI
-
+ 
 struct BarChart: View {
     
     var title: String
@@ -130,7 +130,7 @@ struct BarChart: View {
     }
     
 }
-
+ 
 struct BarChart_Previews: PreviewProvider {
     static var previews: some View {
         BarChart(title: "Your Spending Trends", legend: "", barColor: .green, data: chartDataSet)

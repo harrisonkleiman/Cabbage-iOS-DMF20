@@ -48,9 +48,9 @@ struct ExpenseCard: View {
                         Text("Income")
                             .font(.caption)
                             .opacity(1.0)
-                        Text(expenseViewModel.convertExpensesToPrice(expenses: expenses,type: "Expenses"))
+                        Text(expenseViewModel.convertExpensesToPrice(expenses: expenses,type: "Income"))
                             .font(.callout)
-                            .fontWeight(.semibold)
+                            .fontWeight(.light)
                             .lineLimit(1)
                             .fixedSize()
                     }
@@ -65,6 +65,7 @@ struct ExpenseCard: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("Expenses")
                             .font(.caption)
+                            .fontWeight(.light)
                             .opacity(0.7)
                         Text(expenseViewModel.convertExpensesToPrice(expenses: expenses,type: "Expenses"))
                             .font(.callout)

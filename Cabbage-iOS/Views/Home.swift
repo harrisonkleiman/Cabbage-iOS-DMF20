@@ -57,17 +57,17 @@ struct Home: View {
                         }
                     }
                     
-                    NavigationLink {
-                        BarChart(title: "Your Trends", legend: "Month", barColor: Color("Green"), data: chartDataSet)
-                            .environmentObject(expenseViewModel)
-                    } label: {
-
+//                    NavigationLink {
+//                        BarChart(title: "Your Trends", legend: "Month", barColor: Color("Green"), data: chartDataSet)
+//                            .environmentObject(expenseViewModel)
+//                    } label: {
+//
                         Image(systemName: "chart.line.uptrend.xyaxis")
                             .foregroundColor(Color("Cream"))
                             .frame(width: 40, height: 40)
                             .background(Color("Red"),in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                            .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
-                    }
+                           .shadow(color: .white.opacity(0.15), radius: 5, x: 5, y: 5)
+//                    }
                     
                     NavigationLink {
                         FilterableTransactionView()

@@ -12,7 +12,7 @@ struct FilterableTransactionView: View{
     // MARK: - Environment Values
     @Environment(\.self) var env
     
-    // MARK: - Matched Geometry Effect
+    // MARK: - Geometry Effect
     @Namespace var animation
     
     var body: some View {
@@ -66,7 +66,7 @@ struct FilterableTransactionView: View{
                                 .opacity(0.7)
                             
                             if expenses.isEmpty {
-                                Text("No History Found")
+                                Text("Hmm, no history found...")
                                     .fontWeight(.semibold)
                                     .opacity(0.7)
                                     .padding(.top,5)
@@ -82,7 +82,8 @@ struct FilterableTransactionView: View{
                         .frame(maxWidth: .infinity)
                         .background{
                             RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                .fill(.white)
+                                .fill(Color("accent"))
+                                .foregroundColor(Color("Cream"))
                         }
                         .padding(.vertical,20)
                         
@@ -135,7 +136,8 @@ struct FilterableTransactionView: View{
         .padding(5)
         .background{
             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill(.white)
+                .fill(Color("Red"))
+                .opacity(0.5)
         }
     }
     

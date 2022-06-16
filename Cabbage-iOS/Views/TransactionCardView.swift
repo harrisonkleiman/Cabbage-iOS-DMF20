@@ -36,14 +36,14 @@ struct TransactionCardView: View {
                     .foregroundColor(expense.type == "Expenses" ? Color("Red") : Color("Green"))
                 Text((expense.date ?? Date()).formatted(date: .numeric, time: .omitted))
                     .font(.caption)
-                    .opacity(0.5)
+                    .opacity(0.6)
             }
         }
         .padding()
         .background(Color.white,in: RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 15, style: .continuous))
         .contextMenu{
-            Button("Delete?") {
+            Button("Remove Entry?") {
                 env.managedObjectContext.delete(expense)
                 try? env.managedObjectContext.save()
             }
