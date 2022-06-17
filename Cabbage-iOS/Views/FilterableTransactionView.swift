@@ -114,7 +114,7 @@ struct FilterableTransactionView: View{
             ForEach(["Income","Expenses"],id: \.self){type in
                 Text(type)
                     .fontWeight(.semibold)
-                    .foregroundColor(expenseViewModel.currentType == type ? .white : .black)
+                    .foregroundColor(expenseViewModel.currentType == type ? .white : Color("Cream"))
                     .opacity(expenseViewModel.currentType == type ? 1 : 0.7)
                     .padding(.vertical,12)
                     .frame(maxWidth: .infinity)
@@ -174,7 +174,7 @@ struct FilterableTransactionView: View{
                         .background(Color("Red"))
                 }
                 .padding(20)
-                .background{
+                .background {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .fill(Color("BG"))
                 }
